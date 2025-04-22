@@ -46,3 +46,30 @@ button {
     background: rgb(168, 85, 247);
     color: rgb(255, 255, 255);
 }
+.containerTabela {
+    width: 50%;
+    height: 50%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    background: rgb(244, 244, 244);
+    border-radius: 8px 35px;
+}
+table {
+    width: 90%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+th {
+    padding: 10px;
+    background: rgb(122, 122, 122);
+    color: rgb(255, 255, 255);
+    border: 1px solid rgb(0, 0, 0);
+    width: 150px;
+}
