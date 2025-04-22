@@ -3,10 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Gerenciador de Gastos</title>
 </head>
 <body>
+
+    <div class="contaier">
+        <h1>Cadastre os itens</h1>
+        <div class="inputBox">
+            <i class="bi bi-pencil-fill"></i>
+            <input type="text" placeholder="Nome do item..." id="itemNome">
+        </div>
+        <div class="inputBox">
+            <i class="bi bi-cash-coin"></i>
+            <input type="number" placeholder="Valor do item..." id="itemPreco">
+        </div>
+        <div class="inputBox">
+            <i class="bi bi-file-ruled-fill"></i>
+            <input type="text" placeholder="Categoria do item..." id="itemCategoria">
+        </div>
+        <button type="button" id="btnAdiconar">Adicionar</button>
+    </div>
     
     <script src="main.js"></script>
 </body>
