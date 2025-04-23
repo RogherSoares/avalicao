@@ -1,6 +1,7 @@
 let itensList = [];
 let valorList = [];
 let categoriaList = [];
+let valorTotal = 0;
 
 function addDados() {
     const item = document.getElementById("itemNome").value;
@@ -18,9 +19,18 @@ function addDados() {
 }
 
 function criarLista() {
-    let tabela = "<tr><th>Nome</th><th>Categoria</th><th>Valor</th></tr>"
-    for (let i = 0; i < itensList.length; i++){
-        tabela += "<tr><td>" + itensList[i] + "</td><td>" + categoriaList[i] +"</td><td>" + valorList[i] +"</td></tr>"
-        document.getElementById("tabela").innerHTML = tabela;
+    let tabela = "<tr><th>Nome</th><th>Categoria</th><th>Valor</th></tr>";
+    for (let i = 0; i < itensList.length; i++) {
+        tabela += "<tr><td>" + itensList[i] + "</td><td>" + categoriaList[i] + "</td><td>" + valorList[i] + "</td></tr>";
     }
+    tabela += "<tr><td colspan='2'><strong>Total</strong></td><td><strong>" + calcularTotal() + "</strong></td></tr>";
+    document.getElementById("tabela").innerHTML = tabela;
+}
+
+function calcularTotal() {
+    let valorTotal = 0;
+    for (let i = 0; i < valorList.length; i++) {
+        valorTotal += parseFloat(valorList[i]);
+    }
+    return valorTotal.toFixed(2);
 }
