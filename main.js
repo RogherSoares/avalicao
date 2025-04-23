@@ -21,9 +21,9 @@ function addDados() {
 function criarLista() {
     let tabela = "<tr><th>Nome</th><th>Categoria</th><th>Valor</th></tr>";
     for (let i = 0; i < itensList.length; i++) {
-        tabela += "<tr><td>" + itensList[i] + "</td><td>" + categoriaList[i] + "</td><td>" + valorList[i] + "</td></tr>";
+        tabela += "<tr><td style='border: 1px solid rgb(0, 0, 0);'>" + itensList[i] + "</td><td style='border: 1px solid rgb(0, 0, 0);'>" + categoriaList[i] + "</td><td style='border: 1px solid rgb(0, 0, 0);'>" + valorList[i] + "</td><td><button onclick='removerItem(" + i + ")'>Remover</button></tr>";
     }
-    tabela += "<tr><td colspan='2'><strong>Total</strong></td><td><strong>" + calcularTotal() + "</strong></td></tr>";
+    tabela += "<tr><td colspan='3' style='border: 1px solid rgb(0, 0, 0);'><strong>Total</strong></td><td style='border: 1px solid rgb(0, 0, 0);'><strong>" + calcularTotal() + "</strong></td></tr>";
     document.getElementById("tabela").innerHTML = tabela;
 }
 
@@ -33,4 +33,11 @@ function calcularTotal() {
         valorTotal += parseFloat(valorList[i]);
     }
     return valorTotal.toFixed(2);
+}
+function removerItem(index) {
+    itensList.splice(index, 1);
+    valorList.splice(index, 1);
+    categoriaList.splice(index, 1);
+
+    criarLista();
 }
