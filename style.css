@@ -22,6 +22,7 @@ body {
     flex-direction: column;
     background: rgb(244, 244, 244);
     border-radius: 8px 35px;
+    margin: 5px;
 }
 input {
     width: 90%;
@@ -48,13 +49,16 @@ button {
 }
 .containerTabela {
     width: 50%;
-    height: 50%;
+    height: auto;
+    min-height: 50%;
     justify-content: center;
     align-items: center;
     display: flex;
     flex-direction: column;
     background: rgb(244, 244, 244);
     border-radius: 8px 35px;
+    position: relative;
+    padding: 10px;
 }
 table {
     width: 90%;
