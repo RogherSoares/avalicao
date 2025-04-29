@@ -7,10 +7,17 @@ function addDados() {
     const valor = document.getElementById("itemPreco").value;
     const categoria = document.getElementById("itemCategoria").value;
 
-    if (item, valor, categoria) {
+    if (item && valor && categoria) {
         itensList.push(item);
         valorList.push(valor);
         categoriaList.push(categoria);
+
+        // Exibe a tabela se estiver escondida
+        const tabele = document.getElementById("tabela");
+        if (tabele.style.display === "none") {
+            tabele.style.display = "table"; // ou "block", dependendo do layout
+        }
+
         criarLista();
     } else {
         alert("Por favor, preencha todos os campos.");
@@ -37,6 +44,11 @@ function removerItem(i) {
     itensList.splice(i, 1);
     valorList.splice(i, 1);
     categoriaList.splice(i, 1);
+
+    if (itensList.length === 0) {
+        tabele = document.getElementById("tabela");
+        tabele.style.display = "none";
+    }
 
     criarLista();
 }
