@@ -27,9 +27,11 @@ function addDados() {
 function criarLista() {
     let tabela = "<tr><th>Nome</th><th>Categoria</th><th>Valor</th></tr>";
     for (let i = 0; i < itensList.length; i++) {
-        tabela += "<tr><td style='border: 1px solid rgb(0, 0, 0);'>" + itensList[i] + "</td><td style='border: 1px solid rgb(0, 0, 0);'>" + categoriaList[i] + "</td><td style='border: 1px solid rgb(0, 0, 0);'>" + valorList[i] + "</td><td>"+"<button style='padding: 2px;' onclick='removerItem(" + i + ")'>Remover</button>" + "<button style='padding: 2px;' onclick='editarItem(" + i + ")'>Editar</button></td></tr>";
+        tabela += "<tr><td style='border: 1px solid rgb(0, 0, 0);'>" + itensList[i] + "</td><td style='border: 1px solid rgb(0, 0, 0);'>" + categoriaList[i] + "</td><td style='border: 1px solid rgb(0, 0, 0);'>" + valorList[i] + "</td><td>" +
+            "<button class='remover' style='padding: 2px;' onclick='removerItem(" + i + ")'>Remover</button>" +
+            "<button class='editar' style='padding: 2px;' onclick='editarItem(" + i + ")'>Editar</button></td></tr>";
     }
-    tabela += "<tr><td colspan='3' style='border: 1px solid rgb(0, 0, 0);'><strong>Total</strong></td><td style='border: 1px solid rgb(0, 0, 0);'><strong>" + calcularTotal() + "</strong></td></tr>";
+    tabela += "<tr><td colspan='3' style='border: 1px solid rgb(0, 0, 0);'><strong>Total</strong></td><td style='border: 1px solid rgb(0, 0, 0);'><strong>" + calcularTotal() + " R$" + "</strong></td></tr>";
     document.getElementById("tabela").innerHTML = tabela;
 }
 
@@ -53,13 +55,21 @@ function removerItem(i) {
     criarLista();
 }
 function editarItem(i) {
+    const novoNome = prompt("Digite o novo nome para o item:", itensList[i]);
+    const novaCategoria = prompt("Digite a nova categoria para o item:", categoriaList[i]);
     const novoValor = prompt("Digite o novo valor para o item:", valorList[i]);
-    if (novoValor !== null && !isNaN(novoValor) && novoValor.trim() !== "") {
 
+    if (
+        novoNome !== null && novoNome.trim() !== "" &&
+        novaCategoria !== null && novaCategoria.trim() !== "" &&
+        novoValor !== null && !isNaN(novoValor) && novoValor.trim() !== ""
+    ) {
+        itensList[i] = novoNome.trim();
+        categoriaList[i] = novaCategoria.trim();
         valorList[i] = parseFloat(novoValor).toFixed(2);
 
-        criarLista();
+        criarLista(); 
     } else {
-        alert("Por favor, insira um valor válido.");
+        alert("Por favor, insira valores válidos para todos os campos.");
     }
 }
