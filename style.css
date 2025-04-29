@@ -16,6 +16,7 @@ body {
 .container {
     width: 50%;
     height: 50%;
+    height: auto;
     justify-content: center;
     align-items: center;
     display: flex;
@@ -23,6 +24,7 @@ body {
     background: rgb(244, 244, 244);
     border-radius: 8px 35px;
     margin: 5px;
+    position: absolute;
 }
 input {
     width: 90%;
@@ -46,19 +48,7 @@ button {
     border-radius: 5px;
     background: rgb(168, 85, 247);
     color: rgb(255, 255, 255);
-}
-.containerTabela {
-    width: 50%;
-    height: auto;
-    min-height: 50%;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    background: rgb(244, 244, 244);
-    border-radius: 8px 35px;
-    position: relative;
-    padding: 10px;
+    margin-bottom: 10px;
 }
 table {
     width: 90%;
@@ -68,6 +58,7 @@ table {
     align-items: center;
     border-radius: 5px;
     margin-top: 20px;
+    margin-bottom: 20px;
     border-collapse: collapse;
 }
 th {
@@ -83,4 +74,48 @@ td {
     color: rgb(0, 0, 0);
     width: 150px;
     text-align: center;
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 90%; 
+        margin: 10px;
+        border-radius: 10px; 
+    }
+
+    input {
+        width: 100%; 
+        font-size: 14px; 
+    }
+
+    button {
+        width: 100%; 
+        font-size: 14px; 
+    }
+
+    table {
+        width: 100%; 
+        display: block;
+        overflow-x: auto;
+    }
+
+    th, td {
+        font-size: 12px; 
+        padding: 5px; 
+    }
+}
+@media (max-width: 480px) {
+    .container {
+        width: 100%; 
+        padding: 10px; 
+    }
+
+    th, td {
+        font-size: 10px; 
+    }
+
+    button {
+        font-size: 12px; 
+        padding: 8px;
+    }
 }
