@@ -28,7 +28,7 @@ body {
     background: rgb(244, 244, 244);
     border-radius: 8px 35px;
     margin: 5px;
-    position: relative; /* Ajustado para evitar sobreposição */
+    position: relative; 
 }
 input {
     width: 90%;

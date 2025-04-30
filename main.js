@@ -15,7 +15,7 @@ function addDados() {
         // Exibe a tabela se estiver escondida
         const tabele = document.getElementById("tabela");
         if (tabele.style.display === "none") {
-            tabele.style.display = "table"; // ou "block", dependendo do layout
+            tabele.style.display = "table"; 
         }
 
         criarLista();
@@ -27,11 +27,19 @@ function addDados() {
 function criarLista() {
     let tabela = "<tr><th>Nome</th><th>Categoria</th><th>Valor</th></tr>";
     for (let i = 0; i < itensList.length; i++) {
-        tabela += "<tr><td style='border: 1px solid rgb(0, 0, 0);'>" + itensList[i] + "</td><td style='border: 1px solid rgb(0, 0, 0);'>" + categoriaList[i] + "</td><td style='border: 1px solid rgb(0, 0, 0);'>" + valorList[i] + "</td><td>" +
-            "<button class='remover' style='padding: 2px;' onclick='removerItem(" + i + ")'>Remover</button>" +
-            "<button class='editar' style='padding: 2px;' onclick='editarItem(" + i + ")'>Editar</button></td></tr>";
+        const valor = parseFloat(valorList[i]);
+        const valorStyle = valor > 100 ? "color: rgb(255, 0, 0);" : ""; 
+
+        tabela += "<tr><td style='border: 1px solid rgb(0, 0, 0);'>" + itensList[i] + "</td>" +
+                  "<td style='border: 1px solid rgb(0, 0, 0);'>" + categoriaList[i] + "</td>" +
+                  "<td style='border: 1px solid rgb(0, 0, 0); " + valorStyle + "'>" + valorList[i] + "</td>" +
+                  "<td>" +
+                  "<button class='remover' style='padding: 2px;' onclick='removerItem(" + i + ")'>Remover</button>" +
+                  "<button class='editar' style='padding: 2px;' onclick='editarItem(" + i + ")'>Editar</button>" +
+                  "</td></tr>";
     }
-    tabela += "<tr><td colspan='3' style='border: 1px solid rgb(0, 0, 0);'><strong>Total</strong></td><td style='border: 1px solid rgb(0, 0, 0);'><strong>" + calcularTotal() + " R$" + "</strong></td></tr>";
+    tabela += "<tr><td colspan='3' style='border: 1px solid rgb(0, 0, 0);'><strong>Total</strong></td>" +
+              "<td style='border: 1px solid rgb(0, 0, 0);'><strong>" + calcularTotal() + " R$" + "</strong></td></tr>";
     document.getElementById("tabela").innerHTML = tabela;
 }
 
