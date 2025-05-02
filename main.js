@@ -32,7 +32,7 @@ function criarLista() {
 
         tabela += "<tr><td style='border: 1px solid rgb(0, 0, 0);'>" + itensList[i] + "</td>" +
                   "<td style='border: 1px solid rgb(0, 0, 0);'>" + categoriaList[i] + "</td>" +
-                  "<td style='border: 1px solid rgb(0, 0, 0); " + valorStyle + "'>" + valorList[i] + "</td>" +
+                  "<td style='border: 1px solid rgb(0, 0, 0); " + valorStyle + "'>" + parseFloat(valorList[i]).toFixed(2) + " R$" + "</td>" +
                   "<td>" +
                   "<button class='remover' style='padding: 2px;' onclick='removerItem(" + i + ")'>Remover</button>" +
                   "<button class='editar' style='padding: 2px;' onclick='editarItem(" + i + ")'>Editar</button>" +
@@ -78,6 +78,6 @@ function editarItem(i) {
 
         criarLista(); 
     } else {
-        alert("Por favor, insira valores válidos para todos os campos.");
+        alert("Por favor, insira informações em todos os campos.");
     }
 }
